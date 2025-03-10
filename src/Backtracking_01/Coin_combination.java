@@ -1,6 +1,6 @@
 package Backtracking_01;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Coin_combination {
     public static void main(String[] args) {
@@ -11,16 +11,22 @@ public class Coin_combination {
             coins[i] = sc.nextInt();
         }
         int amount = sc.nextInt();
-        printans(coins,amount,"",0);
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> ll = new ArrayList<>();
+        printans(coins,amount,ll,list,0);
+        System.out.println(list);
     }
-    public static void printans(int[] coins, int amount, String ans,int idx) {
+    public static void printans(int[] coins, int amount, List<Integer> list,List<List<Integer>> ans,int idx) {
         if (amount == 0) {
-            System.out.println(ans);
+            ans.add(new ArrayList<>(list));
+            System.out.println(list);
             return;
         }
         for (int i = idx; i < coins.length; i++) {
             if (coins[i] <= amount) {
-                printans(coins, amount - coins[i], ans + coins[i],i);
+                list.add(coins[i]);
+                printans(coins, amount - coins[i], list,ans,i);
+                list.remove(list.size()-1);
             }
         }
     }

@@ -1,5 +1,7 @@
 package Backtracking_01;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Queen_combinations {
@@ -8,18 +10,25 @@ public class Queen_combinations {
         int n = scanner.nextInt();
         int tq = scanner.nextInt();
         boolean[] board = new boolean[n];
-        printans(board,tq,0,"",0);
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> ll = new ArrayList<>();
+        printans(board, tq, 0, list, ll, 0);
+        System.out.println(list);
     }
-    public static void printans(boolean[] board, int tq, int qpsf, String ans,int idx) {
+
+    public static void printans(boolean[] board, int tq, int qpsf, List<List<Integer>> list, List<Integer> ll, int idx) {
         if (tq == qpsf) {
-            System.out.println(ans);
+            list.add(new ArrayList<>(ll)); // Add a copy of the list
             return;
         }
+
         for (int i = idx; i < board.length; i++) {
-            if (board[i]==false) {
-                board[i]=true;
-                printans(board,tq,qpsf+1,ans+"b"+i+"q"+qpsf,i+1);
-                board[i]=false;
+            if (!board[i]) {
+                board[i] = true;
+                ll.add(i+1);  // Add queen's position only
+                printans(board, tq, qpsf + 1, list, ll, i + 1);
+                board[i] = false; // Backtrack for the board
+                ll.remove(ll.size() - 1); // Backtrack for the list
             }
         }
     }
