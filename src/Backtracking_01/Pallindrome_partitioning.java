@@ -13,9 +13,9 @@ public class Pallindrome_partitioning {
         partitioning(ques,list,res);
         System.out.println(res);
     }
-    public static List<List<String>>  partitioning(String ques,List<String> list,List<List<String>> res){
+    public static void partitioning(String ques, List<String> list, List<List<String>> res){
 
-        if(ques.length()==0){
+        if(ques.isEmpty()){
             res.add(new ArrayList<>(list));
         }
         for(int i=1;i<=ques.length();i++){
@@ -26,7 +26,6 @@ public class Pallindrome_partitioning {
                 list.remove(list.size()-1);
             }
         }
-        return res;
     }
     public static boolean ispalindrome(String str) {
         int i = 0;
