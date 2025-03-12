@@ -11,7 +11,7 @@ public class Word_search {
             for (int j = 0; j < board[0].length; j++) {
                 if (word.charAt(0) == board[i][j]) {
                     boolean ans = WordSearch(board, i, j, word, 0);
-                    if (ans == true) {
+                    if (ans) {
                         System.out.println(ans);
                         return;
                     }
