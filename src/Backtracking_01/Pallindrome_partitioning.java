@@ -38,6 +38,5 @@ public class Pallindrome_partitioning {
             j--;
         }
         return true;
-
     }
 }
