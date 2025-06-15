@@ -11,7 +11,6 @@ public class Generate_parenthesis {
 
         if(open==n && close==n){
             res.add(ans);
-
         }
         if(open<n){
             generateParenthesis(n,open+1,close,ans+"(",res);

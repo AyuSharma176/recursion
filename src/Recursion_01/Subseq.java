@@ -5,7 +5,7 @@ import java.util.*;
 public class Subseq {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = "abc";
+        String str = "abcdef";
         System.out.println("\n"+printsubseq(str,""));
     }
     public static int  printsubseq(String str, String ans){
