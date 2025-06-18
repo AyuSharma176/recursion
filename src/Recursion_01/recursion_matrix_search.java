@@ -18,6 +18,7 @@ public class recursion_matrix_search {
         }
         int a1= pathprint(cc+1,cr,er,ec,ans+"H");
         int a2= pathprint(cc,cr+1,er,ec,ans+"V");
+//        int a3= pathprint(cc+1,cr+1,er,ec,ans+"D");
         return a1+a2;
     }
 }
